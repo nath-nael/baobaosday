@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Baobao Day</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Montserrat', sans-serif;
+        background: linear-gradient(135deg, #e9f5e9, #f0f7f0, #f8f8f8);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+        padding: 20px;
+        animation: gradientShift 20s infinite alternate;
+        background-size: 300% 300%;
+      }
+
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+      }
+
+      .container {
+        max-width: 95%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        position: relative;
+        z-index: 10;
+        margin-top: 20px;
+      }
+
+      .header {
+        text-align: center;
+        padding: 30px 25px;
+        background: rgba(255, 255, 255, 0.92);
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(178, 201, 171, 0.3);
+        backdrop-filter: blur(4px);
+        width: 100%;
+        max-width: 500px;
+        animation: floatUp 0.8s ease-out;
+        position: relative;
+        overflow: hidden;
+        border: 2px solid #d1e0d7;
+      }
+
+      .header::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(178, 201, 171, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+        z-index: -1;
+      }
+
+      h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.8rem;
+        color: #8aa896;
+        margin-bottom: 10px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        background: linear-gradient(45deg, #8aa896, #a8c6af, #b2c9ab);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% auto;
+        animation: shimmer 3s linear infinite;
+        line-height: 1.2;
+        letter-spacing: 1px;
+      }
+
+      @keyframes shimmer {
+        to { background-position: 200% center; }
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        color: #a8c6af;
+        margin-bottom: 20px;
+        font-weight: 500;
+        font-style: italic;
+      }
+
+      .photo-container {
+        position: relative;
+        width: 160px;
+        height: 160px;
+        margin: 15px auto;
+      }
+
+      .photo-frame {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 5px solid #d1e0d7;
+        box-shadow: 0 8px 25px rgba(178, 201, 171, 0.3);
+        position: relative;
+        animation: pulse 4s infinite;
+        background: #f8f8f8;
+        padding: 5px;
+      }
+
+      .photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+        border-radius: 50%;
+      }
+
+      .photo:hover {
+        transform: scale(1.05);
+      }
+
+      .decoration {
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: #a8c6af;
+        top: -5px;
+        right: -5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.3rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        z-index: 20;
+        animation: rotate 10s linear infinite;
+      }
+
+      .decoration:nth-child(2) {
+        top: auto;
+        bottom: -5px;
+        left: -5px;
+        background: #b2c9ab;
+        animation-delay: -3s;
+      }
+
+      .decoration:nth-child(3) {
+        top: auto;
+        bottom: -5px;
+        right: -5px;
+        background: #c5d1c3;
+        animation-delay: -6s;
+      }
+
+      .message-container {
+        background: rgba(255, 255, 255, 0.92);
+        border-radius: 20px;
+        padding: 30px 25px;
+        width: 100%;
+        max-width: 500px;
+        box-shadow: 0 8px 25px rgba(178, 201, 171, 0.25);
+        backdrop-filter: blur(4px);
+        position: relative;
+        animation: floatUp 1s ease-out;
+        text-align: center;
+        margin-bottom: 20px;
+        border: 2px solid #d1e0d7;
+      }
+
+      .message-box {
+        font-size: 1.3rem;
+        color: #5a6d5f;
+        line-height: 1.6;
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 15px;
+        font-weight: 500;
+        font-family: 'Playfair Display', serif;
+      }
+
+      .message-box::before {
+        content: """;
+        font-size: 3.5rem;
+        color: #d1e0d7;
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        opacity: 0.5;
+      }
+
+      .controls {
+        display: flex;
+        gap: 15px;
+        margin-top: 25px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        background: linear-gradient(to right, #a8c6af, #b2c9ab);
+        color: white;
+        border: none;
+        padding: 13px 25px;
+        border-radius: 50px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 5px 15px rgba(178, 201, 171, 0.3);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 160px;
+        justify-content: center;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(178, 201, 171, 0.4);
+        background: linear-gradient(to right, #9ab8a1, #a8c6af);
+      }
+
+      .btn:active {
+        transform: translateY(1px);
+      }
+
+      .balloon {
+        position: absolute;
+        width: 65px;
+        height: 85px;
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        animation: float 7s ease-in-out infinite;
+        z-index: 5;
+        transition: transform 0.3s;
+        touch-action: manipulation;
+        background: linear-gradient(135deg, #d1e0d7, #b2c9ab);
+      }
+
+      .balloon:hover, .balloon:active {
+        transform: scale(1.15);
+      }
+
+      .balloon::after {
+        content: '';
+        position: absolute;
+        bottom: -65px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 65px;
+        background: rgba(138, 168, 150, 0.3);
+      }
+
+      .gift-container {
+        position: relative;
+        width: 180px;
+        height: 180px;
+        margin: 25px auto;
+        animation: floatUp 1.2s ease-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .gift-box {
+        width: 120px;
+        height: 120px;
+        background: linear-gradient(135deg, #d1e0d7, #a8c6af);
+        position: relative;
+        border-radius: 10px;
+        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        transform-style: preserve-3d;
+        transform: rotateX(15deg) rotateY(15deg);
+      }
+
+      .gift-box::before {
+        content: '';
+        position: absolute;
+        width: 120px;
+        height: 20px;
+        background: #8aa896;
+        top: 50px;
+        left: 0;
+      }
+
+      .gift-box::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 120px;
+        background: #8aa896;
+        left: 50px;
+        top: 0;
+      }
+
+      .gift-bow {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 40px;
+        height: 40px;
+        background: #f0e6ef;
+        border-radius: 50%;
+        z-index: 2;
+        box-shadow: 0 0 0 10px #d1e0d7;
+      }
+
+      .gift-bow::before,
+      .gift-bow::after {
+        content: '';
+        position: absolute;
+        width: 80px;
+        height: 20px;
+        background: #f0e6ef;
+        border-radius: 10px;
+      }
+
+      .gift-bow::before {
+        top: 10px;
+        left: -20px;
+        transform: rotate(45deg);
+      }
+
+      .gift-bow::after {
+        top: 10px;
+        left: -20px;
+        transform: rotate(-45deg);
+      }
+
+      .nature-element {
+        position: absolute;
+        font-size: 2rem;
+        z-index: 2;
+        opacity: 0.8;
+        animation: floatUp 8s ease-in-out infinite;
+        pointer-events: none;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+
+      .art-element {
+        position: absolute;
+        font-size: 1.8rem;
+        z-index: 2;
+        opacity: 0.8;
+        animation: float 10s ease-in-out infinite;
+        pointer-events: none;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+
+      .mobile-instruction {
+        margin-top: 10px;
+        font-size: 0.9rem;
+        color: #8aa896;
+        text-align: center;
+        font-weight: 500;
+        background: rgba(255, 255, 255, 0.7);
+        padding: 8px 15px;
+        border-radius: 20px;
+        max-width: 90%;
+        border: 1px solid #d1e0d7;
+      }
+
+      .music-control {
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.92);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        color: #8aa896;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        cursor: pointer;
+        z-index: 100;
+        transition: all 0.3s;
+        touch-action: manipulation;
+        border: 1px solid #d1e0d7;
+      }
+
+      .music-control:hover {
+        transform: scale(1.1);
+        background: white;
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-40px) rotate(5deg); }
+      }
+
+      @keyframes floatUp {
+        0% { transform: translateY(30px); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+      }
+
+      @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(178, 201, 171, 0.5); }
+        70% { box-shadow: 0 0 0 15px rgba(178, 201, 171, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(178, 201, 171, 0); }
+      }
+
+      @keyframes rotate {
+        0% { transform: rotate(0); }
+        100% { transform: rotate(360deg); }
+      }
+
+      @media (max-width: 600px) {
+        h1 { font-size: 2.2rem; }
+        .subtitle { font-size: 1.1rem; }
+        .message-box { font-size: 1.15rem; padding: 15px; }
+        .photo-container { width: 140px; height: 140px; }
+        .btn { padding: 12px 18px; font-size: 0.95rem; min-width: 140px; }
+        .gift-container { width: 150px; height: 150px; }
+      }
+
+      @media (max-width: 400px) {
+        h1 { font-size: 1.9rem; }
+        .message-box { font-size: 1.1rem; }
+        .btn { min-width: 100%; }
+        .controls { gap: 10px; width: 100%; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="music-control" id="musicControl">
+      <i class="fas fa-music"></i>
+    </div>
+
+    <div class="container">
+      <div class="header">
+        <h1>Happy Birthday!</h1>
+        <div class="subtitle">
+          Wishing you a day filled with joy and happiness
+        </div>
+
+        <div class="photo-container">
+          <div class="photo-frame">
+            <img
+              class="photo"
+              src="WhatsApp Image 2025-06-05 at 11.09.11_3199714f.jpg"
+              alt="Special Person"
+            />
+          </div>
+          <div class="decoration"><i class="fas fa-leaf"></i></div>
+          <div class="decoration"><i class="fas fa-palette"></i></div>
+          <div class="decoration"><i class="fas fa-feather"></i></div>
+        </div>
+      </div>
+
+      <div class="message-container">
+        <div class="message-box" id="messageBox">
+          Click a balloon to reveal a special message!
+        </div>
+
+        <div class="gift-container">
+          <div class="gift-box">
+            <div class="gift-bow"></div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button class="btn" id="newMsgBtn">
+            <i class="fas fa-envelope"></i> New Message
+          </button>
+          <button class="btn" id="natureBtn">
+            <i class="fas fa-magic"></i> Nature Effect
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-instruction">
+        <i class="fas fa-mobile-alt"></i> Tap on the floating balloons for
+        special messages
+      </div>
+    </div>
+
+    <!-- Balloons will be generated here -->
+    <div id="balloonsContainer"></div>
+
+    <!-- Nature and art elements will be generated here -->
+    <div id="elementsContainer"></div>
+
+    <audio id="backgroundMusic" loop>
+      <source
+        src="https://orangefreesounds.com/wp-content/uploads/2016/08/Happy-birthday-instrumental.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <script>
+      // Messages array with personalized content
+      const messages = [
+        "Another year older, still surviving. Barely, but hey 🎂",
+        "Wishing you enough sleep to feel like a real human again 😴",
+        "May your stress be low and your snacks be high 🍕",
+        "Touch grass. Breathe air. Hydrate. You got this 🌱",
+        "Stay healthy — your future self is counting on you 💪",
+        "Keep calm and pretend you know what you're doing 🧘‍♀️",
+        "Do your homework. Or at least open the tab for it 📚",
+        "Live a little. But like, responsibly. With sunscreen 😎",
+        "May your Wi-Fi be strong and your worries weak 📶",
+        "Panic less. Nap more. The world can wait 💤",
+        "Here's to fewer breakdowns and more breakthroughs 🧠✨",
+        "Avoid burnout like it’s a group project at 11:59pm 🔥",
+        "Eat your veggies. Or at least don’t just eat chips 🥦",
+        "Be the chaos — but also submit your assignments 🙃",
+        "You’re the main character. But also, go wash your dishes 🍽️",
+        "Less doomscrolling, more moonwalking 🌕🕺",
+        "Keep your vibes high and your browser tabs minimal 🧹",
+        "May your plans go well and your emails stay unread 📥",
+        "Don't just exist — flourish... or at least show up 🌸",
+        "Age gracefully — or dramatically, your choice 🕺🎭",
+      ];
+
+      // Nature and art elements
+      const natureElements = ["🌿", "🍃", "🌸", "🌼", "🌱", "🌾", "🍂", "🌻"];
+      const artElements = ["🎨", "🖌️", "✏️", "🖼️", "📝", "🖋️", "✒️", "🖍️"];
+
+      // DOM elements
+      const messageBox = document.getElementById("messageBox");
+      const newMsgBtn = document.getElementById("newMsgBtn");
+      const natureBtn = document.getElementById("natureBtn");
+      const balloonsContainer = document.getElementById("balloonsContainer");
+      const elementsContainer = document.getElementById("elementsContainer");
+      const musicControl = document.getElementById("musicControl");
+      const backgroundMusic = document.getElementById("backgroundMusic");
+
+      let isMusicPlaying = false;
+      let lastMessageIndex = -1;
+
+      // Create floating balloons (nature-themed colors)
+      function createBalloon(index) {
+        const balloon = document.createElement("div");
+        balloon.classList.add("balloon");
+
+        // Position randomly (avoid bottom area on mobile)
+        balloon.style.left = `${Math.random() * 80 + 10}%`;
+        balloon.style.top = `${Math.random() * 40 + 10}%`;
+
+        // Nature-themed colors
+        const colors = [
+          "linear-gradient(135deg, #d1e0d7, #a8c6af)",
+          "linear-gradient(135deg, #e0ebd8, #c5d1c3)",
+          "linear-gradient(135deg, #e9f5e9, #b2c9ab)",
+          "linear-gradient(135deg, #f0f7f0, #c5d1c3)",
+        ];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        balloon.style.background = color;
+
+        // Add click/touch event
+        balloon.addEventListener("click", () => {
+          showMessage(index);
+          balloon.style.animation = "none";
+          balloon.style.transform = "translateY(-100vh)";
+          balloon.style.opacity = "0";
+          balloon.style.transition = "all 1.2s ease-in-out";
+
+          // Play gentle sound
+          new Audio(
+            "https://www.soundjay.com/nature/sounds/forest-ambience-1.mp3"
+          )
+            .play()
+            .catch((e) => console.log(e));
+
+          // Remove after animation
+          setTimeout(() => {
+            balloon.remove();
+            createBalloon(index); // Create a new balloon to replace this one
+          }, 1200);
+        });
+
+        balloonsContainer.appendChild(balloon);
+      }
+
+      // Create multiple balloons
+      for (let i = 0; i < messages.length; i++) {
+        createBalloon(i);
+      }
+
+      // Create floating nature and art elements
+      function createNatureElement() {
+        const element = document.createElement("div");
+        element.classList.add("nature-element");
+
+        element.innerHTML =
+          natureElements[Math.floor(Math.random() * natureElements.length)];
+        element.style.left = `${Math.random() * 100}%`;
+        element.style.fontSize = `${Math.random() * 20 + 25}px`;
+        element.style.animationDuration = `${Math.random() * 8 + 6}s`;
+        element.style.opacity = `${Math.random() * 0.5 + 0.3}`;
+
+        elementsContainer.appendChild(element);
+
+        // Remove after animation
+        setTimeout(() => {
+          element.remove();
+        }, 12000);
+      }
+
+      function createArtElement() {
+        const element = document.createElement("div");
+        element.classList.add("art-element");
+
+        element.innerHTML =
+          artElements[Math.floor(Math.random() * artElements.length)];
+        element.style.left = `${Math.random() * 100}%`;
+        element.style.fontSize = `${Math.random() * 20 + 25}px`;
+        element.style.animationDuration = `${Math.random() * 10 + 8}s`;
+        element.style.opacity = `${Math.random() * 0.5 + 0.3}`;
+        element.style.animationDelay = `${Math.random() * 2}s`;
+
+        elementsContainer.appendChild(element);
+
+        // Remove after animation
+        setTimeout(() => {
+          element.remove();
+        }, 15000);
+      }
+
+      // Create several elements
+      for (let i = 0; i < 10; i++) {
+        setTimeout(() => {
+          createNatureElement();
+          createArtElement();
+        }, i * 1500);
+      }
+
+      // Show message function
+      function showMessage(index) {
+        messageBox.textContent = messages[index];
+        messageBox.style.animation = "none";
+        setTimeout(() => {
+          messageBox.style.animation = "floatUp 0.4s ease-out";
+        }, 10);
+        lastMessageIndex = index;
+      }
+
+      // New message button
+      newMsgBtn.addEventListener("click", () => {
+        let newIndex;
+        do {
+          newIndex = Math.floor(Math.random() * messages.length);
+        } while (newIndex === lastMessageIndex && messages.length > 1);
+
+        showMessage(newIndex);
+      });
+
+      // Nature effect button
+      natureBtn.addEventListener("click", () => {
+        for (let i = 0; i < 5; i++) {
+          setTimeout(() => {
+            createNatureElement();
+            createArtElement();
+          }, i * 300);
+        }
+
+        // Play nature sound
+        new Audio(
+          "https://orangefreesounds.com/wp-content/uploads/2016/08/Happy-birthday-instrumental.mp3"
+        )
+          .play()
+          .catch((e) => console.log(e));
+      });
+
+      // Music control
+      musicControl.addEventListener("click", () => {
+        if (isMusicPlaying) {
+          backgroundMusic.pause();
+          musicControl.innerHTML = '<i class="fas fa-music"></i>';
+        } else {
+          backgroundMusic
+            .play()
+            .catch((e) => console.log("Autoplay prevented: " + e));
+          musicControl.innerHTML = '<i class="fas fa-pause"></i>';
+        }
+        isMusicPlaying = !isMusicPlaying;
+      });
+
+      // Gift box animation
+      const giftBox = document.querySelector(".gift-box");
+      giftBox.addEventListener("click", function () {
+        this.style.transform = "rotateX(25deg) rotateY(25deg) scale(1.1)";
+        this.style.transition = "all 0.5s ease";
+
+        // Play gift sound
+        new Audio("https://www.soundjay.com/misc/sounds/magic-chime-1.mp3")
+          .play()
+          .catch((e) => console.log(e));
+
+        setTimeout(() => {
+          this.style.transform = "rotateX(15deg) rotateY(15deg) scale(1)";
+        }, 1000);
+      });
+
+      // Initialize with a random message
+      setTimeout(() => {
+        showMessage(Math.floor(Math.random() * messages.length));
+      }, 1500);
+
+      // Create continuous flow of elements
+      setInterval(() => {
+        if (Math.random() > 0.7) createNatureElement();
+        if (Math.random() > 0.7) createArtElement();
+      }, 3000);
+    </script>
+  </body>
+</html>
